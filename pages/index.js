@@ -10,10 +10,9 @@ export default function Home() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    setError('');
-    setInstr('');
-    setCoords('');
     setError('…deciphering…');
+    setCoords('');
+    setInstr('');
     const res = await fetch('/api/coords', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -51,10 +50,20 @@ export default function Home() {
           <button type="submit">submit</button>
         </form>
 
-        {/* error or coords */}
         {error && <p className="error">{error}</p>}
         {coords && <p className="coordinates">{coords}</p>}
-        {instr && <p className="message">{instr}</p>}
+        {instr && (
+          <>
+            <p className="message">{instr}</p>
+            <a
+              href="https://partiful.com/e/AMXAh9XnIczB8Bm8bCxI"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="rsvpbtn">rsvp</button>
+            </a>
+          </>
+        )}
       </div>
 
       <style jsx>{`
@@ -107,15 +116,13 @@ export default function Home() {
           box-shadow: 0 0 8px #a2fca3;
         }
 
-        /* coordinates line */
         .coordinates {
           margin-top: 1rem;
           font-size: 1.125rem;
           text-shadow: 0 0 4px #3aff7f;
-          font-family: Arial, sans-seif;
+          font-family: Arial, sans-serif;
         }
 
-        /* instructions: padded L/R, fade-in after 1s */
         .message {
           max-width: 280px;
           padding: 0 1.5rem;
@@ -127,7 +134,27 @@ export default function Home() {
           font-size: 1rem;
         }
 
-        /* simple error styling (no fade) */
+        .rsvpbtn {
+          width: 100%;
+          margin: 1.25rem 0;
+          padding: 0.25rem 4.0rem;
+          font-size: 1rem;
+          border-radius: 4px;
+          outline: none;
+          text-shadow: 0 0 4px #3aff7f;
+          background: transparent;
+          border: 1px solid #a2fca3;
+          color: #a2fca3;
+          cursor: pointer;
+          opacity: 0;
+          animation: fadeIn 0.8s ease-in forwards;
+          animation-delay: 1s;
+        }
+        .rsvpbtn:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 8px #a2fca3;
+        }
+
         .error {
           margin-top: 1rem;
           color: #ff6b6b;
