@@ -8,7 +8,8 @@ const VALID_HASHES = new Set([
   'dfa01e5f7269190a27bdf228904e7f786bbd38fd565cc0c5276c8b89f2a10e95', // yoob
   'd7132ae8ae0ddc4764ea37e42f0a5cea7d8bff653a7eafe427067592d8b07965', // djttgen
   '952f32838dab4f1c563a2d43524b228918a606c0530032dc17e6ee97fa666058', // marcs
-  '488ac2c3603a97e003cc26563560bf0483351b517f7744fbda8ac554a8c7574c'  // djian
+  '488ac2c3603a97e003cc26563560bf0483351b517f7744fbda8ac554a8c7574c',  // djian
+  '53c9fb2cae94567f0e4d2c198e6655dd4ed3b03b58fed3f1e4d6c9e3de0c10d5'  // ephemeralforest
 ]);
 
 function hashPassword(pwd) {
